@@ -1,0 +1,9 @@
+{
+    "name": "HangMan",
+    "version": "1.0.0",
+    "description": "Hangouts connector for standard XMPP server",
+    "main": "hangman.js",
+    "author": "Max Ehrlich",
+    "dependencies": {
+    }
+}
