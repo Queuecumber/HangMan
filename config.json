@@ -1,0 +1,14 @@
+{
+    "server": {
+        "domain": "hm.queuecumber.net"
+    },
+    "client": {
+        "googleTalk": {
+            "host": "talk.google.com",
+            "port": 5222
+        }
+    },
+    "redis": {
+        
+    }
+}
