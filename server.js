@@ -7,6 +7,6 @@ r.register('hm.queuecumber.net', function (stanza)
 {
     var me = stanza.attrs.to;
     stanza.attrs.to = stanza.attrs.from;
-    stamza.attrs.from = me;
+    stanza.attrs.from = me;
     r.send(stanza);
 });
