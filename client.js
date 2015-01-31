@@ -1,34 +1,38 @@
 var xmpp = require('node-xmpp-client');
 var ltx = require('node-xmpp-core').ltx;
 
-var HangManClient = function (settings)
+var HangManClient = function (settings, auth)
 {
-    this.target = settings.target;
     this.talkId = settings.talkId;
     this.connection = new xmpp.Client({
-        port: 5222,
-        host: 'talk.google.com',
-        jid: settings.talkId,
-        password: settings.talkPassword
+        port: settings.googleTalk.port,
+        host: settings.googleTalk.host,
+        jid: auth.jid,
+        password: auth.password 
     });
+
+    this.send = function (to, msg)
+    {
+        var stanza = new ltx.Element(
+            'message', {
+                to: to,
+                type: 'chat'
+            })
+            .c('body').t(msg);
+
+        this.connection.send(stanza);
+    };
 };
 
 // cl.addListener('online', function (data)
 // {
 //     console.log(data);
 //
-//     var stanza = new ltx.Element(
-//         'message', {
-//             to: '',
-//             type: 'chat'
-//     })
-//     .c('body').t('Hello World');
-//
-//     cl.send(stanza);
 //     cl.end();
 //
 //     console.log('done');
 // });
+
 //
 // cl.addListener('error', function (e)
 // {
