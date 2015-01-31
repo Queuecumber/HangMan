@@ -26,6 +26,11 @@ var HangManClient = function (settings, auth)
         this.connection.send(stanza);
     };
 
+    this.connection.on('stanza', function (stanza)
+    {
+        console.log(stanza);
+    });
+
     this.connection.addListener('online', function (data)
     {
         console.log(data);
