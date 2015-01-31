@@ -10,16 +10,14 @@ var HangManClient = function (settings, auth)
         password: auth.password
     });
 
-    this.send = function (stanza)
+    this.send = function (recipient, msg)
     {
-        // var stanza = new ltx.Element(
-        //     'message', {
-        //         to: to,
-        //         type: 'chat'
-        //     })
-        //     .c('body').t(msg);
-
-        stanza.from = auth.jid;
+        var stanza = new ltx.Element(
+            'message', {
+                to: to,
+                type: 'chat'
+            })
+            .c('body').t(msg);
 
         console.log(stanza);
 

@@ -10,13 +10,16 @@ var s = new server.HangManServer(config.server);
 
 s.on('message', function (stanza)
 {
-    var to = stanza.attrs.to;
+    if(stanza.attrs.type == 'chat')
+    {
+        var to = stanza.attrs.to;
 
-    var rparts = to.split('@');
+        var rparts = to.split('@');
 
-    var recipient = rparts[0] + '@gmail.com';
+        var recipient = rparts[0] + '@gmail.com';
 
-    stanza.attrs.to = recipient;
+        var msg = stanza.c('body').t();
 
-    c.send(stanza);
+        c.send(recipient, msg);
+    }
 });
