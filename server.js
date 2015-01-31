@@ -9,7 +9,7 @@ var HangManServer = function (settings)
 
     r.register(settings.domain, function (stanza)
     {
-        console.log(stanza);
+        emitter.emit('message',stanza);
     });
 
     this.on = function ()
