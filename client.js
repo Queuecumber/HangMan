@@ -14,6 +14,7 @@ var HangManClient = function (settings, auth)
     {
         var stanza = new ltx.Element(
             'message', {
+                from: auth.jid,
                 to: recipient,
                 type: 'chat'
             })
@@ -26,8 +27,7 @@ var HangManClient = function (settings, auth)
 
     this.connection.on('stanza', function (stanza)
     {
-        if(stanza.attrs.type == 'error')
-            console.log(stanza.c('body').t());
+        console.log(JSON.stringify(stanza));
     });
 
     this.connection.addListener('online', function (data)

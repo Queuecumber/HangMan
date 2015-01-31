@@ -18,7 +18,7 @@ s.on('message', function (stanza)
 
         var recipient = rparts[0] + '@gmail.com';
 
-        var msg = stanza.c('body').t();
+        var msg = stanza.getChildText('body');
 
         c.send(recipient, msg);
     }
