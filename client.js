@@ -36,7 +36,7 @@ var HangManClient = function (settings, auth)
 
     this.connection.addListener('error', function (e)
     {
-        console.error(e);
+        console.error(e.c('body').t());
         process.exit(1);
     });
 };
