@@ -14,7 +14,6 @@ var HangManClient = function (settings, auth)
     {
         var stanza = new ltx.Element(
             'message', {
-                from: auth.jid,
                 to: recipient,
                 type: 'chat'
             })
