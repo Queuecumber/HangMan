@@ -12,9 +12,9 @@ s.on('message', function (stanza)
 {
     var to = stanza.attrs.to;
 
-    to.split('@');
+    var rparts = to.split('@');
 
-    var recipient = to[0] + '@gmail.com';
+    var recipient = rparts[0] + '@gmail.com';
 
     stanza.attrs.to = recipient;
 
