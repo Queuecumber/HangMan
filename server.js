@@ -27,3 +27,7 @@ var HangManServer = function (settings)
         emitter.removeListener.apply(emitter, arguments);
     };
 };
+
+module.exports = {
+    HangManServer: HangManServer
+}
