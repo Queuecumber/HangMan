@@ -19,6 +19,10 @@ var HangManClient = function (settings, auth)
         //     })
         //     .c('body').t(msg);
 
+        stanza.from = auth.jid;
+
+        console.log(stanza);
+
         this.connection.send(stanza);
     };
 
