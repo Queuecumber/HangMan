@@ -5,6 +5,7 @@
   "main": "hangman.js",
   "author": "Max Ehrlich",
   "dependencies": {
+    "config": "^1.10.0",
     "node-stringprep": "^0.7.0",
     "node-xmpp-client": "^1.0.0-alpha19",
     "node-xmpp-core": "^1.0.0-alpha13",
