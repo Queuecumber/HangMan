@@ -26,7 +26,8 @@ var HangManClient = function (settings, auth)
 
     this.connection.on('stanza', function (stanza)
     {
-        console.log(stanza);
+        if(stanza.attrs.type == 'error')
+            console.log(stanza.c('body').t());
     });
 
     this.connection.addListener('online', function (data)
@@ -36,7 +37,7 @@ var HangManClient = function (settings, auth)
 
     this.connection.addListener('error', function (e)
     {
-        console.error(e.c('body').t());
+        console.error(e);
         process.exit(1);
     });
 };
