@@ -1,12 +1,29 @@
 var xmpp = require('node-xmpp-server');
 var ltx = require('node-xmpp-core').ltx;
+var events = require('events');
 
-var r = new xmpp.Router();
-
-r.register('hm.queuecumber.net', function (stanza)
+var HangManServer = function (settings)
 {
-    var me = stanza.attrs.to;
-    stanza.attrs.to = stanza.attrs.from;
-    stanza.attrs.from = me;
-    r.send(stanza);
-});
+    var r = new xmpp.Router();
+    var emitter = new events.EventEmitter();
+
+    r.register(settings.domain, function (stanza)
+    {
+        console.log(stanza);
+    });
+
+    this.on = function ()
+    {
+        emitter.on.apply(emitter, arguments);
+    };
+
+    this.once = function ()
+    {
+        emitter.once.apply(emitter, arguments);
+    };
+
+    this.removeListener = function ()
+    {
+        emitter.removeListener.apply(emitter, arguments);
+    };
+};
