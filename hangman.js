@@ -7,3 +7,16 @@ var auth = JSON.parse(fs.readFileSync('my.json'));
 
 var c = new client.HangManClient(config.client, auth);
 var s = new server.HangManServer(config.server);
+
+s.on('message', function (stanza)
+{
+    var to = stanza.attrs.to;
+
+    to.split('@');
+
+    var recipient = to[0] + '@gmail.com';
+
+    stanza.attrs.to = recipient;
+
+    c.send(stanza);
+});
