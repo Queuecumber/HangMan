@@ -8,7 +8,7 @@ var HangManClient = function (settings, auth)
         port: settings.googleTalk.port,
         host: settings.googleTalk.host,
         jid: auth.jid,
-        password: auth.password 
+        password: auth.password
     });
 
     this.send = function (to, msg)
@@ -41,8 +41,5 @@ var HangManClient = function (settings, auth)
 // });
 
 module.exports = {
-    establish: function (settings)
-    {
-        return new HangManClient(settings);
-    }
+    HangManClient: HangManClient
 }
